@@ -1,0 +1,31 @@
+package:
+  name: lasersdk-artiq
+  version: {{ environ.get("GIT_DESCRIBE_TAG", "")[1:] }}
+
+source:
+  git_url: ..
+
+build:
+  noarch: python
+  number: {{ environ.get("GIT_DESCRIBE_NUMBER", 0) }}
+  string: py_{{ environ.get("GIT_DESCRIBE_NUMBER", 0) }}+git{{ environ.get("GIT_FULL_HASH", "")[:8] }}
+  script: $PYTHON setup.py install --single-version-externally-managed --record=record.txt
+  entry_points:
+    - aqctl_laser = lasersdk_artiq.aqctl_laser:main
+
+requirements:
+  build:
+    - python >=3.5
+  run:
+    - python >=3.5
+    - lasersdk =1.1.0
+    - artiq
+
+test:
+  imports:
+    - lasersdk_artiq.aqctl_laser
+
+about:
+  home: https://github.com/quartiq/lasersdk-artiq
+  license: LGPLv3+
+  summary: ARTIQ controller for TOPTICA Laser SDK
