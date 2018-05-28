@@ -28,6 +28,10 @@ class RPCClient(Client):
         return await super().get(param_name,
                 *(self.param_types[typ] for typ in param_types))
 
+    async def ping(self):
+        await self.get("system-label", "str")
+        return True
+
 
 def get_argparser():
     parser = argparse.ArgumentParser(
