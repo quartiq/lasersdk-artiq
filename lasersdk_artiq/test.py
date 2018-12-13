@@ -29,7 +29,7 @@ class ClientTest(unittest.TestCase):
         async def run(dev):
             for k in ("power-supply:status-txt system-health-txt uptime-txt "
                     "fw-ver ssw-ver laser1:health-txt laser1:dl:cc:status-txt "
-                    "laser1:dl:tc:status-txt laser1:dl:lock:state-txt "
+                    "laser1:dl:tc:status-txt " # laser1:dl:lock:state-txt "
                     "laser1:dl:pc:status-txt").split():
                 print(k, await dev.get(k, str))
         self.with_device(run)
