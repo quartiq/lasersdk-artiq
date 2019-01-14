@@ -18,7 +18,7 @@ requirements:
     - python >=3.5
   run:
     - python >=3.5
-    - lasersdk =1.2.0
+    - lasersdk =1.3.1
     - artiq
 
 test:
