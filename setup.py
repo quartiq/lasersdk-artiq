@@ -7,7 +7,7 @@ from setuptools import find_packages
 
 setup(
     name="lasersdk-artiq",
-    version="0.1",
+    version="0.2",
     description="ARTIQ controller for TOPTICA Laser SDK",
     long_description=open("README.rst").read(),
     author="Robert Jördens",
@@ -15,7 +15,7 @@ setup(
     url="https://github.com/quartiq/lasersdk-artiq",
     download_url="https://github.com/quartiq/lasersdk-artiq",
     packages=find_packages(),
-    install_requires=[],
+    install_requires=["sipyco"],
     entry_points={
         "console_scripts": [
             "aqctl_laser = lasersdk_artiq.aqctl_laser:main",
