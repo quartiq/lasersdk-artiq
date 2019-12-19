@@ -15,7 +15,7 @@ setup(
     url="https://github.com/quartiq/lasersdk-artiq",
     download_url="https://github.com/quartiq/lasersdk-artiq",
     packages=find_packages(),
-    install_requires=["sipyco"],
+    install_requires=[],
     entry_points={
         "console_scripts": [
             "aqctl_laser = lasersdk_artiq.aqctl_laser:main",
