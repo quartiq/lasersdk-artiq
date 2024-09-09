@@ -5,7 +5,7 @@ import logging
 import sys
 import asyncio
 
-from toptica.lasersdk.async.client import Client, NetworkConnection
+from toptica.lasersdk.asyncio.client import Client, NetworkConnection
 
 from sipyco.pc_rpc import Server
 from sipyco import common_args
@@ -59,7 +59,7 @@ def main():
         sys.exit(1)
 
     async def run():
-        async with RPCClient(NetworkConnection(args.device, loop=loop)) as dev:
+        async with RPCClient(NetworkConnection(args.device)) as dev:
             server = Server({"laser": dev}, None, True)
             await server.start(common_args.bind_address_from_args(args), args.port)
             try:

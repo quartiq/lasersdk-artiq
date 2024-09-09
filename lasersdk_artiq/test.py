@@ -2,7 +2,7 @@ import asyncio
 import unittest
 import os
 
-from toptica.lasersdk.async.client import Client, NetworkConnection
+from toptica.lasersdk.asyncio.client import Client, NetworkConnection
 
 
 target = os.getenv("LASER")
@@ -11,7 +11,7 @@ class ClientTest(unittest.TestCase):
     def with_device(self, f):
         loop = asyncio.get_event_loop()
         async def run():
-            async with Client(NetworkConnection(target, loop=loop)) as dev:
+            async with Client(NetworkConnection(target)) as dev:
                 return await f(dev)
         return loop.run_until_complete(run())
 
